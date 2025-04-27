@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 body {
+  margin-top: 3%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,10 +19,11 @@ body {
   transform: scale(0.7);
   animation: rotate 200s linear infinite;
   position: relative;
-            width: 700px;
-            height: 700px;
-            margin: auto;
+  width: 700px;
+  height: 700px;
+  margin: auto;
 }
+
 @keyframes rotate {
   from {
     transform: scale(0.7) rotate(0deg);
@@ -31,24 +33,24 @@ body {
   }
 }
 
-.surrounding-circle {
+.surrounding-circle, .surrounding-circle2 {
   position: absolute;
-  width: 10%;
-  height: 20%;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  overflow: hidden;
-  border: 10px solid transparent;
-  background: 
-      radial-gradient(circle at center, transparent 55px, black 56px),
-      radial-gradient(circle at center, black 48px, transparent 49px, transparent 52px, rgb(11, 11, 11) 53px);
-  background-clip: padding-box, border-box;
-  background-origin: padding-box, border-box;
-  display: flex;           /* Added */
-  justify-content: center; /* Added */
-  align-items: center;     /* Added */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Rotating border - නව ක්‍රමය */
+.surrounding-circle {
+  background: 
+    radial-gradient(circle at center, transparent 55px, black 56px),
+    radial-gradient(circle at center, black 48px, transparent 49px, transparent 52px, rgb(11, 11, 11) 53px);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+}
+
 .surrounding-circle::before {
   content: "";
   position: absolute;
@@ -58,30 +60,10 @@ body {
   background: conic-gradient(
     from 0deg,
     transparent 0deg 180deg,
-    white 180deg 360deg
+    #0012a7 180deg 360deg
   );
   animation: rotateBorder 8s linear infinite;
-  z-index: 1;
-}
-
-/* Image container */
-.surrounding-circle::after {
-  content: "";
-  position: absolute;
-  width: calc(100% - 20px); /* Border ඝණකම අනුව */
-  height: calc(100% - 20px);
-  border-radius: 50%;
-  background: black;
-  z-index: 2;
-}
-
-.surrounding-circle img {
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
-  border-radius: 50%;
-  object-fit: cover;
-  position: relative;
-  z-index: 3;
+  z-index: -1;
 }
 
 @keyframes rotateBorder {
@@ -93,26 +75,17 @@ body {
   }
 }
 
-/* ======================================= */
+/* ==================================== */
+
 
 .surrounding-circle2 {
-  position: absolute;
-  width: 10%;
-  height: 20%;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 10px solid transparent;
   background: 
-      radial-gradient(circle at center, transparent 55px, black 56px),
-      radial-gradient(circle at center, black 48px, transparent 49px, transparent 52px, rgb(11, 11, 11) 53px);
+    radial-gradient(circle at center, transparent 55px, black 56px),
+    radial-gradient(circle at center, black 48px, transparent 49px, transparent 52px, rgb(11, 11, 11) 53px);
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
-  display: flex;           /* Added */
-  justify-content: center; /* Added */
-  align-items: center;     /* Added */
 }
 
-/* Rotating border - නව ක්‍රමය */
 .surrounding-circle2::before {
   content: "";
   position: absolute;
@@ -122,31 +95,12 @@ body {
   background: conic-gradient(
     from 0deg,
     transparent 0deg 180deg,
-    rgb(183, 8, 8) 180deg 360deg
+    #56c22b 180deg 360deg
   );
   animation: rotateBorder2 8s linear infinite;
-  z-index: 1;
+  z-index: -1;
 }
 
-/* Image container */
-.surrounding-circle2::after {
-  content: "";
-  position: absolute;
-  width: calc(100% - 20px); /* Border ඝණකම අනුව */
-  height: calc(100% - 20px);
-  border-radius: 50%;
-  background: black;
-  z-index: 2;
-}
-
-.surrounding-circle2 img {
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
-  border-radius: 50%;
-  object-fit: cover;
-  position: relative;
-  z-index: 3;
-}
 
 @keyframes rotateBorder2 {
   0% {
@@ -157,28 +111,53 @@ body {
   }
 }
 
-/* .surrounding-circle img {
-  width: 10%;
-  height: 15%;
-  object-fit: cover;
-} */
 
+.surrounding-circle img, .surrounding-circle2 img {
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.topRactangle {
+  box-shadow: 0 0 15px 5px rgba(183, 8, 8, 0.7);
+  animation: powerPulse 1s infinite alternate;
+}
+
+@keyframes powerPulse {
+  0% {
+    box-shadow: 0 0 15px 5px rgba(183, 8, 8, 0);
+  }
+  20% {
+    box-shadow: 0 0 5px 2px rgba(183, 8, 8, 0.7);
+  }
+  40% {
+    box-shadow: 0 0 15px 5px rgba(183, 8, 8, 0.3);
+  }
+  60% {
+    box-shadow: 0 0 5px 2px rgba(183, 8, 8, 0.9);
+  }
+  80% {
+    box-shadow: 0 0 15px 5px rgba(183, 8, 8, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px 2px rgba(183, 8, 8, 0);
+  }
+}
+
+/* Position classes */
 .top {
   top: -10px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.circle-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
 .top-right {
   top: 40px;
   right: 30%;
+  transform: translateX(10%);
 }
 
 .right {
@@ -189,18 +168,14 @@ body {
 
 .bottom-right {
   bottom: 10%;
-  right: 25%;
-}
-
-.bottom {
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 26%;
+  transform: translateX(10%);
 }
 
 .bottom-left {
   bottom: 10%;
-  left: 25%;
+  left: 24%;
+  transform: translateX(10%);
 }
 
 .left {
@@ -212,6 +187,7 @@ body {
 .top-left {
   top: 40px;
   left: 30%;
+  transform: translateX(10%);
 }
 
 .background-pattern {
@@ -223,8 +199,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   background: 
-      radial-gradient(circle at center, transparent 320px, black 321px),
-      radial-gradient(circle at center, black 280px, transparent 281px);
+    radial-gradient(circle at center, transparent 320px, black 321px),
+    radial-gradient(circle at center, black 280px, transparent 281px);
   z-index: -1;
 }
 
@@ -237,8 +213,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   background-image: 
-      radial-gradient(white 2px, transparent 2px),
-      radial-gradient(white 2px, transparent 2px);
+    radial-gradient(white 2px, transparent 2px),
+    radial-gradient(white 2px, transparent 2px);
   background-size: 20px 20px;
   background-position: 0 0, 10px 10px;
   z-index: -2;
