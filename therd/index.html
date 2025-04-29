@@ -3,11 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <<link rel="stylesheet" href="./style.css">>
+    <title>Vesak Lantern</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
 
 </head>
 
 <body>
+     <!-- Add this audio element at the start of body -->
+     <audio id="bgAudio" autoplay loop >
+        <source src="../image/mp3/kaviBana.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- partial:index.partial.html -->
     <div class="base">
 
@@ -384,6 +392,17 @@
         </div>
     <!-- partial -->
 
+
+    <script>
+
+        
+ // This script will unmute the audio after user interaction
+ document.addEventListener('click', function() {
+    const audio = document.getElementById('bgAudio');
+    audio.muted = false;
+    audio.play().catch(e => console.log("Audio play failed:", e));
+  }, { once: true }); 
+    </script>
 </body>
 
 </html>
