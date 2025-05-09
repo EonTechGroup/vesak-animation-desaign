@@ -105,33 +105,6 @@ body {
   z-index: -500;
 }
 
-.nextPage {
-  position: absolute;
-  right: 10%;
-  bottom: 8%;
-  font-size: xxx-large;
-  margin: auto;
-  z-index: -500;
-  font-weight: bold;
-  color: aqua;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.nextPage span {
-  display: inline-block;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
-}
 
 /* Responsive styles for mobile */
 @media (max-width: 856px) {
@@ -187,29 +160,5 @@ body {
     top: 18%;
     bottom: 15%;
     transform: translateX(50%);
-  }
-
-  .nextPage {
-    right: 23%;
-    transform: translateX(50%);
-    font-size: 1.8rem;
-    z-index: auto;
-    bottom: 2%;
-  }
-
-  .nextPage button {
-    font-size: 1.8rem;
-  }
-}
-
-/* Animation for button text */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

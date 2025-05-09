@@ -9,9 +9,9 @@
   <script>
     
     // Redirect to index.html after 5 seconds (5000 milliseconds)
-   /* setTimeout(function() {
+   setTimeout(function() {
       window.location.href = "therd/index.html";
-    }, 5000); */
+    }, 5000);
 
     
   </script>
@@ -216,31 +216,8 @@
         </g>
       </g>
     </svg>
-
-    <div class="nextPage">
-      <button>
-        ⏩⏩
-      </button>
-    </div>
-
-
   </div>
   <!-- partial -->
-
-  <script>
-    
-    const text = "CLICK ME";
-    let index = 0;
-    const element = document.querySelector('.nextPage');
-    
-    function animateText() {
-      element.textContent = text.slice(0, index);
-      index = (index + 1) % (text.length + 1);
-      setTimeout(animateText, 300); /* අකුරු වේගය */
-    }
-    
-    animateText();
-  </script>
 </body>
 
 </html>
