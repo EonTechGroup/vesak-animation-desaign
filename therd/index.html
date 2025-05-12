@@ -14,18 +14,22 @@
 </head>
 
 <body>
+
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader">
+            <div class="loader-bulb"></div>
+            <div class="loader-base"></div>
+        </div>
+        <div class="loading-text">Loading Vesak Lantern...</div>
+    </div>
+
+
     <!-- Add this audio element at the start of body -->
     <audio id="bgAudio" autoplay loop>
         <source src="../image/mp3/kaviBana2.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-
-     <!-- Click to discover overlay with glassmorphism effect -->
-    <div class="click-to-discover" id="discoveryOverlay">
-        <div class="discovery-card">
-            <div class="discovery-text">🪔🪔Click to find out more about the Vesak Zone and the NALAPANA JATHAKAYA story online..🪔🪔🪷☸️🪷</div>
-        </div>
-    </div>
 
     <!-- Main content (hidden initially) -->
     <div class="main" id="mainContent">
@@ -1018,13 +1022,6 @@
             audio.play().catch(e => console.log("Audio play failed:", e));
         }, { once: true }); 
 
-        //---------image hide script-----------
-           document.getElementById('discoveryOverlay').addEventListener('click', function() {
-            this.style.display = 'none';
-
-            document.getElementById('mainContent').style.display = 'block';
-        });
-
 
           // --------Random color generator for more dynamic changes--------
         document.addEventListener('DOMContentLoaded', function() {
@@ -1046,6 +1043,28 @@
             
             setInterval(() => {
                 element.style.color = getRandomVesakColor();
+            }, 3000);
+        });
+
+            // Simulate content loading
+        window.addEventListener('load', function() {
+            // Wait for 3 seconds to simulate loading
+            setTimeout(function() {
+                // Hide loader
+                document.getElementById('loader').classList.add('hidden');
+                
+                // Show main content
+                document.getElementById('mainContent').classList.add('loaded');
+                
+                // Play audio (requires user interaction on most browsers)
+                document.addEventListener('click', function() {
+                    const audio = document.getElementById('bgAudio');
+                    audio.play().catch(e => console.log("Audio play failed:", e));
+                }, { once: true });
+                
+                // Random color generator for background
+          
+                
             }, 3000);
         });
     </script>
